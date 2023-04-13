@@ -6,7 +6,7 @@ import HomeProducts from '../components/HomeProducts';
 
 export default function Home() {
 
-  const [web, setWeb] = useState('todas');
+  const [web, setWeb] = useState('all');
   const [category, setCategory] = useState('celular');
   const [search, setSearch] = useState('');
   const [mlProducts, setMlProducts] = useState([]);

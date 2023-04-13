@@ -12,5 +12,5 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
     tableName: 'products',
   });
-  return Product
+  return Product;
 };

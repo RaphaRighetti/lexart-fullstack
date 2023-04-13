@@ -1,5 +1,6 @@
 const express = require('express');
 const { mlProducts } = require('./controllers/ml.controller');
+const { buscapeProducts } = require('./controllers/buscape.controller');
 
 const app = express();
 app.use(express.json());
@@ -14,5 +15,7 @@ const config = async (req, res , next) => {
 app.use(config);
 
 app.get('/mercadolivre/:category', mlProducts);
+app.get('/buscape/:category', buscapeProducts);
+app.get('/all/:category', mlProducts);
 
 module.exports = app;

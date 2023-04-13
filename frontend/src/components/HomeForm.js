@@ -9,7 +9,7 @@ export default function HomeForm() {
   const fetchProducts = async () => {
     setIsLoading(true);
     const headers = { 'content-type': 'application/json', 'Access-Control-Allow-Origin': '*' }
-    const newUrl = `${url}/mercadolivre/${category}?q=${search}`;
+    const newUrl = `${url}/${web}/${category}?q=${search}`;
     const response = await fetch(newUrl, { headers, method: 'GET' });
     const data = await response.json();
     setMlProducts(data);
@@ -26,7 +26,7 @@ export default function HomeForm() {
           value={ web }
           onChange={ ({ target }) => setWeb(target.value) }
         >
-          <MenuItem value="todas">Todas</MenuItem>
+          <MenuItem value="all">Todas</MenuItem>
           <MenuItem value="mercadolivre">MercadoLivre</MenuItem>
           <MenuItem value="buscape">Buscapé</MenuItem>
         </Select>
