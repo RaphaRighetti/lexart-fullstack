@@ -28,15 +28,15 @@ const scrapBuscape = async (category, query) => {
     await page.goto(urls[category], { waitUntil: 'load', timeout: 0 });
     await page.waitForSelector('.SearchCard_ProductCard_Inner__7JhKb');
     await page.waitForSelector('.SearchCard_ProductCard_Image__ffKkn > span > img');
-    
-    for (let i = 0; i < 10; i += 1) {
+
+    for (let i = 1; i <= 20; i += 1) {
       await page.evaluate( () => {
         window.scrollBy({
-          top: window.innerHeight * 5,
+          top: window.innerHeight * i * 10,
           behavior: "smooth",
         });
       });
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
     
     const links = await page.$$eval(
