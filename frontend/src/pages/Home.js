@@ -9,7 +9,8 @@ export default function Home() {
   const [web, setWeb] = useState('todas');
   const [category, setCategory] = useState('celular');
   const [search, setSearch] = useState('');
-  const [products, setProducts] = useState([]);
+  const [mlProducts, setMlProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   const value = useMemo(() => ({
     web,
@@ -18,9 +19,11 @@ export default function Home() {
     setCategory,
     search,
     setSearch,
-    products,
-    setProducts,
-  }), [web, category, search, products]);
+    mlProducts,
+    setMlProducts,
+    isLoading,
+    setIsLoading,
+  }), [web, category, search, mlProducts, isLoading]);
   return (
     <HomeContext.Provider value={ value }>
       <HomeForm />

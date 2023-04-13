@@ -4,7 +4,7 @@
   padding: 50px;
   gap: 10px;
   flex-wrap: wrap;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .img-box img {
@@ -14,7 +14,7 @@
 .products-container {
   display: flex;
   box-sizing: border-box;
-  padding: 50px;
+  padding: 16px 50px 50px;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -45,6 +45,33 @@
 .button-site-box {
   margin-left: auto;
   min-width: 81px;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #1976d2;
+  border-color: #1976d2 transparent #1976d2 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 660px) {

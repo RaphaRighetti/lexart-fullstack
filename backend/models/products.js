@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.STRING,
     link: DataTypes.STRING,
     category: DataTypes.STRING,
+    website: DataTypes.STRING,
   }, 
   {
     timestamps: false,

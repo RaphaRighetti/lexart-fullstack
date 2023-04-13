@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import HomeContext from '../context/HomeContext';
-import categories from '../utils/categories';
 
 export default function HomeForm() {
-  const { web, setWeb, category, setCategory, search, setSearch, setProducts } = useContext(HomeContext);
+  const { web, setWeb, category, setCategory, search, setSearch, setMlProducts, isLoading, setIsLoading } = useContext(HomeContext);
+  const url = process.env.URL || 'http://localhost:3001';
 
   const fetchProducts = async () => {
-    const query = search.replaceAll(' ', '%20');
-    const url = `https://api.mercadolibre.com/sites/MLB/search?category=${categories[category]}&q=${query}`;
-    console.log(url);
-    const response = await fetch(url);
+    setIsLoading(true);
+    const headers = { 'content-type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    const newUrl = `${url}/mercadolivre/${category}?q=${search}`;
+    const response = await fetch(newUrl, { headers, method: 'GET' });
     const data = await response.json();
-    setProducts(data.results);
-    console.log(data);
+    setMlProducts(data);
+    setIsLoading(false);
   };
 
   return (
@@ -52,7 +52,7 @@ export default function HomeForm() {
         onChange={ ({ target }) => setSearch(target.value) }
       />
       <FormControl style={ { marginBottom: 1 } }>
-        <Button variant="contained" size="medium" onClick={ fetchProducts }>Pesquisar</Button>
+        <Button variant="contained" size="medium" onClick={ fetchProducts } disabled={isLoading}>Pesquisar</Button>
       </FormControl>
     </div>
   )

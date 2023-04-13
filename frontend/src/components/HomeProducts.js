@@ -3,20 +3,24 @@ import HomeContext from '../context/HomeContext';
 import { Button } from '@mui/material';
 
 export default function HomeProducts() {
-  const { products } = useContext(HomeContext);
+  const { mlProducts, isLoading } = useContext(HomeContext);
   return (
     <div className="products-container">
-      {products?.map((e) => (
-        <div key={e.id} className='product-card'>
-          <div className='img-box'>
-            <img src={e.thumbnail} alt={e.title} />
+      {isLoading && <div className="lds-dual-ring" />}
+      {Array.isArray(mlProducts) && !isLoading && mlProducts?.map((e) => (
+        <div key={e.link} className="product-card">
+          <div className="img-box">
+            <img src={e.image} alt={e.title} />
           </div>
-          <div className='product-infos-box'>
+          <div className="product-infos-box">
            <h1>{e.title}</h1>
-           <p className='price'>{e.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+           <p className="category">{e.category}</p>
+           <p className="price">{e.price}</p>
           </div>
-          <div className='button-site-box'>
-            <Button variant='contained' size='small'>Ir a web</Button>
+          <div className="button-site-box">
+            <a href={ e.link }>
+            <Button variant="contained" size="small">Ir a web</Button>
+            </a>
           </div>
         </div>
       ))}
