@@ -10,7 +10,7 @@ const buscapeProducts = async (req, res) => {
     res.status(200).json(response);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: 'Internal server error', msg: err.message });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 

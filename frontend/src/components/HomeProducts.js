@@ -18,7 +18,7 @@ export default function HomeProducts() {
            <p className="price">{e.price}</p>
           </div>
           <div className="button-site-box">
-            <a href={ e.link }>
+            <a href={ e.link } target='_blank' rel="noreferrer">
             <Button variant="contained" size="small">Ir a web</Button>
             </a>
           </div>
