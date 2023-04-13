@@ -4,7 +4,7 @@ import HomeContext from '../context/HomeContext';
 
 export default function HomeForm() {
   const { web, setWeb, category, setCategory, search, setSearch, setMlProducts, isLoading, setIsLoading } = useContext(HomeContext);
-  const url = process.env.API_URL || 'http://localhost:3001';
+  const url = process.env.API_URL || 'https://lexart-backend-production.up.railway.app';
 
   const fetchProducts = async () => {
     setIsLoading(true);
