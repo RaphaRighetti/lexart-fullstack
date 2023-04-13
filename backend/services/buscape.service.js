@@ -22,7 +22,7 @@ const scrapBuscape = async (category, query) => {
   if (dbProducts) return dbProducts;
   
   const scrapProducts = await (async () => {
-    const browser = await pup.launch();
+    const browser = await pup.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'], ignoreDefaultArgs: ['--disable-extensions'] });
     const page = await browser.newPage();
 
     await page.goto(urls[category], { waitUntil: 'load', timeout: 0 });
