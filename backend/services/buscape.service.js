@@ -32,10 +32,10 @@ const scrapBuscape = async (category, query) => {
     await page.evaluate(async () => {
       for (let i = 1; i <= 20; i += 1) {
         window.scrollBy({
-          top: window.innerHeight * i * 10,
+          top: window.innerHeight * i * 20,
           behavior: "smooth",
         });
-        await new Promise((resolve) => setTimeout(resolve, 100));
+        await new Promise((resolve) => setTimeout(resolve, 150));
       }
     });
     
