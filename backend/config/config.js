@@ -1,7 +1,7 @@
 const db = {
-  username: process.env.DB_USER || 'root',
-  password: process.env.DB_PASS || 'root',
-  host: process.env.DB_HOST || 'localhost',
+  username: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || 'root',
+  host: process.env.MYSQLHOST || 'localhost',
   dialect: 'mysql'
 };
 
@@ -16,6 +16,6 @@ module.exports = {
   },
   production: {
     ...db,
-    database: process.env.DB_PROD || 'products_db',
+    database: process.env.MYSQLDATABASE || 'products_db',
   },
 };
