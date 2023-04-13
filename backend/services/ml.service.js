@@ -29,11 +29,11 @@ const scrapMl = async (category, query) => {
     await page.waitForSelector('.slick-slide > img');
     await page.evaluate( () => {
       window.scrollBy({
-        top: window.innerHeight * 500,
+        top: window.innerHeight * 1000,
         behavior: "smooth",
       });
     });
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     
     const titlesAndLinks = await page.$$eval(
       '.ui-search-item__group > a.ui-search-item__group__element',
