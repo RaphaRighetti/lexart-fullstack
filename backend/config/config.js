@@ -2,6 +2,7 @@ const db = {
   username: process.env.MYSQLUSER || 'root',
   password: process.env.MYSQLPASSWORD || 'root',
   host: process.env.MYSQLHOST || 'localhost',
+  port: process.env.MYSQLPORT || 3306,
   dialect: 'mysql'
 };
 
